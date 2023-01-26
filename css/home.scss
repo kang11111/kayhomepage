@@ -1,0 +1,93 @@
+@import "style.scss";
+
+.home_container{
+  padding-top: 70px;
+  @include center(95%,1200px);
+  @media screen and (min-width:1000px){
+    height: calc(100% - 70px);
+    display: flex;
+  }//lg
+  .img_container{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    @media screen and (min-width:1000px){
+      width: 50%;
+      border-right: 1px solid $color2;
+    }//img_container lg
+    @media screen and (max-width:1000px){
+      border-bottom: 1px solid $color2;
+      padding: 20px 0;
+    }//img_container sm
+    .imgbox{
+      width: 100%;
+      .textbox{
+        padding: 20px;
+        box-sizing: border-box;
+        h3{
+          display: inline-block;
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 5px;
+          margin-right: 3px;
+        }//h3
+        i{font-weight: 300;}
+        p{
+          font-size: 15px;
+          @media screen and (max-width:500px){
+            br.no{display: none;}
+          }//sm
+        }//p
+      }//textbox
+    }//imgbox
+  }//img_container
+  .percent_container{    
+    display: flex;
+    align-items: center;
+    text-align: left;
+    @media screen and (min-width:1000px){
+      width: 50%;
+    }//percent_container lg
+    @media screen and (max-width:1000px){
+      padding: 25px 0;
+    }//percent_container sm
+    ul{
+      width: 100%;
+      li{
+        @include en;
+        text-align: left;
+        @media screen and (min-width:1000px){
+          margin: 50px 0;
+          margin-left: 25px;
+        }//lg
+        @media screen and (max-width:1000px){
+          margin: 30px 0;
+          margin-left: 10px;
+        }//sm
+        h3{@include fontsize(1000px,18px,15px)}
+        div{
+          position: relative;
+          width: 0; height: 5px;
+          margin: 10px 0;
+          background: linear-gradient(90deg,rgb(255, 214, 214),$color3,$color1);
+          transition: width 2s;
+          span{
+            @include fontsize(1000px,15px,14px);
+            position: absolute;
+            right: 0; bottom: 15px;
+            opacity: 0;
+            transition: opacity 0.5s;
+          }//span
+        }//div
+      }//li
+    }//ul
+    &.active{
+      //li>div>span{opacity: 1;}
+      li:nth-child(1) div{width: 95%; transition-delay: 0s; span{opacity: 1;}}
+      li:nth-child(2) div{width: 90%; transition-delay: 0.2s; span{opacity: 1; transition-delay: 0.4s;}}
+      li:nth-child(3) div{width: 90%; transition-delay: 0.4s; span{opacity: 1; transition-delay: 0.6s;}}
+      li:nth-child(4) div{width: 75%; transition-delay: 0.6s; span{opacity: 1; transition-delay: 0.8s;}}
+      li:nth-child(5) div{width: 85%; transition-delay: 0.8s; span{opacity: 1; transition-delay: 1s;}}
+    }//div.active
+  }//div.percent_container
+}//home_container

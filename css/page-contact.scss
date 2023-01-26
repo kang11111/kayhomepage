@@ -1,0 +1,159 @@
+@import "style.scss";
+.contact_container{
+  @include en;
+  overflow: hidden;
+  position: relative;
+  padding-top: 70px;
+  height: calc(100% - 70px);
+  background: $color2;
+  .center{
+    @include pdv(1000px,70px,30px);
+    @include center(95%,1200px);
+    @include posabslt(50%,50%,-50%,-50%);
+    @media screen and (min-width:600px){
+      display: flex;
+      align-items: center;
+    }//lg
+    @media screen and (max-width:600px){
+      >div{width: 100%;}
+    }//sm
+    .contactbox{
+      position: relative;
+      box-sizing: border-box;
+      @media screen and (min-width:600px){
+        padding: 20px 40px;
+        width: 60%;
+      }//lg
+      @media screen and (max-width:600px){
+        padding: none;
+      }//sm
+      h2{
+        @include fontsize(1000px,120px,12vw);
+        font-weight: 900;
+        @media screen and (min-width:600px){
+          margin-bottom: 70px;
+        }//lg
+        @media screen and (max-width:600px){
+          margin: 30px;
+          text-align: center;
+        }//sm
+      }//h2
+      figure{
+        position: relative;
+        width: 300px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        &::before{
+          @media screen and (min-width:600px){
+            content: "";
+            position: absolute;
+            width: 300px; height: 190px;
+            background: #000;
+            top: -25px; left: -25px;
+          }//lg
+          @media screen and (max-width:600px){
+            display: none;
+          }//sm
+        }//figure::before
+        img{
+          position: relative;
+          display: block; width: 100%;
+          box-sizing: border-box;
+          border: 5px solid #000;
+        }//img
+      }//figure
+      
+      p{
+        margin-bottom: 20px;
+        width: 250px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 10px;
+        span{
+          display: block;
+          margin-bottom: 10px;
+          font-weight: 700;
+          b,a{
+            font-weight: 500;
+            &::before{
+              content: "/";
+              display: inline-block;
+              margin: 0 10px;
+              font-weight: 700;
+            }//before
+          }//b,a
+          a{font-weight: 500;}
+          a:hover{text-decoration: underline;}
+        }//span
+      }//p
+    }//contactbox
+    .fnb{
+      box-sizing: border-box;
+      @media screen and (min-width:600px){
+        padding: 30px 0;
+        width: 40%;
+      }//lg
+      @media screen and (max-width:600px){
+        padding: 15px 0;
+      }//sm
+      p{        
+        @include fontsize(1000px,70px,8vw);
+        font-weight: 700;
+        @media screen and (max-width:600px){
+          text-align: center;
+        }//sm
+        a{
+          display: inline-block;
+          position: relative;
+          margin-bottom: 10px;
+          &::after{
+            position: absolute;
+            top: 100%; left: 50%; transform: translateX(-50%);
+            content: "";
+            display: block;
+            width: 0;  height: 3px;
+            background: $color1;
+            transition: width 0.2s;
+            transition-timing-function: linear;
+            transform-origin: left left;
+          }//a::after
+          &:hover{color: $color1; &::after{width: 100%;}}
+        }//a
+      }//p
+    }//fnb
+  }//center
+  .circle{
+    position: absolute;
+    background: $color3;
+    transform-origin: 40% 50%;
+    @media screen and (min-width:600px){
+      width: 15vw; height: 15vw;
+      border-radius: 15vw;
+    }//lg
+    @media screen and (max-width:600px){
+      width: 100px; height: 100px;
+      border-radius: 100px;
+    }//sm
+    &.circle1{animation: rotate1 12s linear infinite;}
+    &.circle2{animation: rotate2 12s linear infinite;}
+    &.circle3{animation: rotate3 16s linear infinite;}
+    @keyframes rotate1{
+      0%{transform: translateY(0);}
+      25%{transform: translate(7vh,-3vh);}
+      75%{transform: translate(3vh,10vh);}
+      100%{transform: translateY(0);}
+    }
+    @keyframes rotate2{
+      0%{transform: translate(0);}
+      25%{transform: translate(-5vh,10vh);}
+      75%{transform: translate(10vh,-8vh);}
+      100%{transform: translate(0);}
+    }
+    @keyframes rotate3{
+      0%{transform: translate(0);}
+      25%{transform: translate(13vh,-5vh);}
+      75%{transform: translate(14vh,-17vh);}
+      100%{transform: translate(0);}
+    }
+  }//div.circle
+}//contact_container
